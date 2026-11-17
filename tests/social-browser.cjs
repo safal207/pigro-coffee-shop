@@ -88,7 +88,7 @@ let browser;
  await fallback.route('https://wa.me/**',route=>route.fulfill({status:200,contentType:'text/html',body:'WhatsApp handoff test'}));
  await fallback.goto(base+'?view=feed',{waitUntil:'load'});
  await fallback.locator('#catalog.feed-mode [data-social-share]').first().click();
- await fallback.waitForURL(/wa\\.me\\/\\?text=/,{timeout:10000});
+ await fallback.waitForURL(url => url.hostname === 'wa.me' && url.searchParams.has('text'),{timeout:10000});
  assert.match(new URL(fallback.url()).searchParams.get('text')||'',/pigro-coffee-shop/);
  await desktop.close();
  assert.deepEqual(errors,[],'no uncaught JavaScript errors');
