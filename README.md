@@ -11,7 +11,8 @@ Independent mobile-first digital menu prototype for Pigro Coffee Shop in GazipaÅ
 - TR / RU / EN interface; categories, search, and multiple menu view layouts.
 - Favorites, product options, editable quantities, live order cart and local persistence.
 - "Show to barista" generates an order summary; it does not transmit an order or charge payment.
-- All CSS, JavaScript, branding and product images are embedded in index.html; no external build or CDN needed.
+- Core app uses standalone `index.html` plus `experience-addon.js` and `experience-addon.css`; 15 compressed cacheable WebP assets live under `assets/`. No npm dependencies or external image CDN are required.
+- Three-step deterministic taste finder, visual photo feed, direct product links (`?product=<id>`), safe all-or-nothing combinations, and local-only anonymous UX events.
 
 ## Deployment
 
@@ -19,7 +20,9 @@ GitHub Pages workflow: `.github/workflows/pages.yml`.
 Enable GitHub Pages source **GitHub Actions** under **Settings â†’ Pages**.
 Expected production URL: https://safal207.github.io/pigro-coffee-shop/
 
-Static smoke test: `node tests/smoke.mjs`. CI: `.github/workflows/check.yml`.
+Run `node tests/smoke.mjs && node --check experience-addon.js && node --test tests/experience.test.cjs`. CI: `.github/workflows/check.yml`.
+
+See `docs/cross-project-audit.md` for sourced comparisons, transfer limitations, and safe backend roadmap.
 
 ## Before commercial launch
 
