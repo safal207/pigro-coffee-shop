@@ -8,7 +8,8 @@ assert.match(html, /<html\s+lang=/i, 'html must declare language');
 assert.match(html, /<meta\s+name="viewport"/, 'viewport is required');
 assert.match(html, /<style>[^]*<\/style>/, 'inline CSS expected');
 assert.match(html, /<script>[^]*<\/script>/, 'inline JS expected');
-assert.match(html, /data:image\/webp;base64,/, 'image assets should be embedded');
+assert.match(html, /assets\/pigro-sloth\.webp/, 'cacheable original brand image expected');
+assert.doesNotMatch(html, /data:image\/webp;base64,/, 'do not inline heavy photos');
 assert.match(html, /pigro/i, 'brand name required');
 assert.match(html, /localStorage/, 'cart/favorites persistence required');
 assert.match(html, /renderAll\(\)/, 'app entrypoint required');
@@ -17,4 +18,4 @@ assert.ok(s, 'script not found');
 const tmp=mkdtempSync(join(tmpdir(),'pigro-'));
 try { const file=join(tmp,'inline.js'); writeFileSync(file,s[1]); execFileSync(process.execPath,['--check',file],{stdio:'pipe'}); }
 finally { rmSync(tmp,{recursive:true,force:true}); }
-console.log('PASS: self-contained HTML and JS syntax OK');
+console.log('PASS: HTML, cached assets and JavaScript syntax OK');
