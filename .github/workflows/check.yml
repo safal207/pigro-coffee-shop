@@ -15,4 +15,7 @@ jobs:
         with:
           node-version: '22'
       - name: Validate standalone HTML and JS
-        run: node tests/smoke.mjs
+        run: |
+          node tests/smoke.mjs
+          node --check experience-addon.js
+          node --test tests/experience.test.cjs
