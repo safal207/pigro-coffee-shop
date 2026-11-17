@@ -399,6 +399,16 @@ window.addEventListener('storage', e=>{
   if(e.key==='pigro_fav'){state.fav=validSet(safelyRead('pigro_fav',[]),allowed);renderProducts();}
 });
 document.querySelector('#lang').addEventListener('change',()=>queueMicrotask(()=>{renderStories();renderProducts();}));
+try {
+  const requested = new URL(location.href).searchParams.get('lang');
+  if (['ru','tr','en'].includes(requested) && requested !== state.lang) {
+    state.lang = requested;
+    safelyWrite('pigro_lang', requested);
+    translate();
+    renderCart();
+    renderBundles();
+  }
+} catch {}
 renderStories();
 renderProducts();
 })();
