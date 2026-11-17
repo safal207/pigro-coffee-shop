@@ -249,7 +249,7 @@ const state = {
   category:'all',
   search:'',
   sort:'featured',
-  view:safelyRead('pigro_view','grid') === 'list'?'list':'grid',
+  view:['grid','list','feed'].includes(safelyRead('pigro_view','grid')) ? safelyRead('pigro_view','grid') : 'grid',
   shown:12,
   favoritesOnly:false,
   mode:'here',
