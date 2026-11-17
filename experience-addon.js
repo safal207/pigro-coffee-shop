@@ -86,6 +86,11 @@ openProduct=function(id){
 };
 async function shareProduct(id){
  const p=products.find(x=>x.id===id);if(!p)return;
+ if(typeof window.pigroShareDirect==='function'){
+   window.pigroShareDirect(id);
+   record('share_product',{productId:id});
+   return;
+ }
  const u=new URL(location.href);u.searchParams.set('product',id);u.hash='';
  try{
  if(navigator.share)await navigator.share({title:'Pigro Coffee Shop — '+itemName(p),url:u.toString()});

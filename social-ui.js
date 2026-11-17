@@ -300,31 +300,28 @@ function moveFeed(id, delta) {
     });
   }
 }
+// One tap from every product card: native Android/iOS share targets, no Pigro intermediary.
 function openShare(id) {
   if (!allowed.has(id)) return;
-  const p = product(id), copy = tr();
-  const url = shareUrl(location.href,id,state.lang);
-  if (!url) return;
-  shareId = id;
-  document.querySelector('#pigro-share-title').textContent = copy.shareTitle;
-  shareDialog.querySelector('[data-social-close]').setAttribute('aria-label',copy.close);
-  document.querySelector('#pigro-sheet-product').textContent = itemName(p);
-  document.querySelector('#pigro-sheet-price').textContent = money(p.price);
-  document.querySelector('#pigro-sheet-image').src = image(p.img);
-  document.querySelector('#pigro-sheet-image').alt = copy.photo;
-  document.querySelector('#pigro-sheet-hint').textContent = copy.shareHint;
-  const input=document.querySelector('#pigro-sheet-url');input.value=url;
-  shareDialog.querySelector('[data-social-native]').textContent=copy.native;
-  shareDialog.querySelector('[data-social-native]').hidden = typeof navigator.share !== 'function';
-  shareDialog.querySelector('[data-social-copy]').textContent = copy.copy;
-  document.querySelector('#pigro-share-feedback').textContent = '';
-  const phrase='Pigro Coffee Shop — ' + itemName(p);
-  document.querySelector('#pigro-sheet-whatsapp').href='https://wa.me/?text='+encodeURIComponent(phrase+' '+url);
-  document.querySelector('#pigro-sheet-telegram').href='https://t.me/share/url?url='+encodeURIComponent(url)+'&text='+encodeURIComponent(phrase);
-  if (typeof shareDialog.showModal === 'function') shareDialog.showModal();
-  else shareDialog.setAttribute('open','');
-  note('social_share_open',id);
+  const p = product(id);
+  const url = shareUrl(location.href, id, state.lang);
+  if (!p || !url) return;
+  const title = 'Pigro Coffee Shop — ' + itemName(p);
+  note('social_share_open', id);
+  if (typeof navigator.share === 'function') {
+    try {
+      // Must be invoked synchronously inside the click gesture on mobile browsers.
+      Promise.resolve(navigator.share({title, url})).catch(error => {
+        if (error && error.name === 'AbortError') return; // User dismissed OS share sheet.
+        toast(state.lang === 'tr' ? 'Paylaşılamadı, tekrar deneyin' : state.lang === 'en' ? 'Unable to share, please try again' : 'Не удалось поделиться, попробуйте ещё раз');
+      });
+      return;
+    } catch { /* Unsupported native handler: use the one-tap WhatsApp route. */ }
+  }
+  // No Web Share API (e.g. older browsers/desktop): open the social app directly.
+  location.assign('https://wa.me/?text=' + encodeURIComponent(title + ' ' + url));
 }
+window.pigroShareDirect = openShare;
 async function copyLink() {
   const input = document.querySelector('#pigro-sheet-url');
   const hint = document.querySelector('#pigro-share-feedback');

@@ -50,3 +50,16 @@ test('social UI is wired after taste guide and retains catalog and cart',()=>{
  assert.match(html,/function addToCart/);
  assert.match(html,/function renderCart/);
 });
+
+test('share from cards goes directly to the native apps without an extra Pigro modal',()=>{
+ const fs=require('node:fs');
+ const social=fs.readFileSync('social-ui.js','utf8');
+ const addon=fs.readFileSync('experience-addon.js','utf8');
+ const start=social.indexOf('function openShare(id) {'), end=social.indexOf('async function copyLink()',start);
+ assert.ok(start>=0&&end>start);
+ const action=social.slice(start,end);
+ assert.match(action,/navigator\.share\(\{title, url\}\)/);
+ assert.match(action,/location\.assign\('https:\/\/wa\.me\/\?text='/);
+ assert.doesNotMatch(action,/showModal\(|setAttribute\('open'/);
+ assert.match(addon,/window\.pigroShareDirect\(id\)/,'product details also use one-tap sharing');
+});

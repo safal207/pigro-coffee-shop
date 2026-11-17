@@ -13,6 +13,7 @@ Independent mobile-first digital menu prototype for Pigro Coffee Shop in Gazipa≈
 - "Show to barista" generates an order summary; it does not transmit an order or charge payment.
 - Core app uses standalone `index.html` plus `experience-addon.js` and `experience-addon.css`; 15 compressed cacheable WebP assets live under `assets/`. No npm dependencies or external image CDN are required.
 - Three-step deterministic taste finder, visual photo feed, direct product links (`?product=<id>`), safe all-or-nothing combinations, and local-only anonymous UX events.
+- **One-tap product sharing:** immediately opens the mobile OS share sheet (WhatsApp, Telegram and other installed targets) with the product deep link; if the browser lacks the Web Share API, navigates directly to WhatsApp. No intermediate Pigro share modal.
 
 ## Deployment
 
