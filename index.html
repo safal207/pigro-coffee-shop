@@ -308,4 +308,4 @@ document.addEventListener('click',e=>{
 });
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeOverlay();if(e.key==='Tab'){const dialog=$('#productModal').classList.contains('open')?$('#productModal'):$('#cartDrawer').classList.contains('open')?$('#cartDrawer'):null;if(!dialog)return;const elems=$$('button:not(:disabled), input:not(:disabled),select:not(:disabled),a[href]',dialog).filter(el=>el.offsetParent!==null);if(!elems.length)return;const first=elems[0],last=elems.at(-1);if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}});
 renderAll();
-</script><script src="./experience-addon.js" defer></script><script src="./social-ui.js" defer></script></body></html>
+</script><script src="./experience-addon.js?v=direct-share-1" defer></script><script src="./social-ui.js?v=direct-share-1" defer></script></body></html>

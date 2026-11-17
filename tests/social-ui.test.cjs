@@ -35,7 +35,7 @@ test('social UI is wired after taste guide and retains catalog and cart',()=>{
  const addon=fs.readFileSync('social-ui.js','utf8');
  const css=fs.readFileSync('social-ui.css','utf8');
  assert.match(html,/href="\.\/social-ui\.css"/);
- assert.match(html,/<script src="\.\/experience-addon\.js" defer><\/script><script src="\.\/social-ui\.js" defer><\/script>/);
+ assert.match(html,/<script src="\.\/experience-addon\.js\?v=direct-share-1" defer><\/script><script src="\.\/social-ui\.js\?v=direct-share-1" defer><\/script>/);
  assert.match(addon,/data-social-share/);
  assert.match(addon,/data-social-like/);
  assert.match(addon,/data-social-save/);
