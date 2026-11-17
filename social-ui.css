@@ -1,0 +1,118 @@
+/* Pigro customer-facing social commerce layer.
+   The source imagery is illustrative. Never use fake popularity counters. */
+.pigro-stories{max-width:1660px;margin:0 auto;padding-top:23px;padding-bottom:23px}
+.pigro-story-heading{display:flex;justify-content:space-between;align-items:flex-end;gap:15px;margin-bottom:20px}
+.pigro-story-heading>div>span{display:block;color:#687b60;letter-spacing:.13em;font-size:11px;font-weight:900}
+.pigro-story-heading h2{font-size:clamp(28px,3.6vw,42px);line-height:1.1;letter-spacing:-.055em;margin:6px 0;color:#383029}
+.pigro-story-heading p{color:#746b60;font-size:13px;margin:2px 0}
+.pigro-story-open{border:1px solid #d7d4c8;background:#eef0e7;color:#45523e;font-weight:850;font-size:12px;min-height:47px;border-radius:999px;padding:10px 15px;display:flex;align-items:center;gap:9px;flex-shrink:0}
+.pigro-story-open svg{width:17px;height:17px}
+.pigro-story-strip{display:flex;overflow-x:auto;gap:clamp(12px,2vw,22px);padding:4px 1px 12px;scrollbar-width:thin;scroll-snap-type:x proximity;scroll-padding-inline:12px;overscroll-behavior-inline:contain;-webkit-overflow-scrolling:touch}
+.pigro-story{border:0;background:transparent;color:#403b34;flex:0 0 94px;min-width:0;text-align:center;display:flex;flex-direction:column;align-items:center;gap:9px;padding:0;scroll-snap-align:start}
+.pigro-story-ring{width:80px;height:80px;padding:4px;display:block;border-radius:50%;border:3px solid #9cae84;background:#faf8f2;box-shadow:0 4px 18px #40302018;transition:transform .2s,border-color .2s}
+.pigro-story:nth-child(3n) .pigro-story-ring{border-color:#d9ad84}
+.pigro-story:nth-child(3n+2) .pigro-story-ring{border-color:#d9a8af}
+.pigro-story-ring img{width:100%;height:100%;object-fit:cover;border-radius:50%;background:#ece5dc}
+.pigro-story:hover .pigro-story-ring{transform:translateY(-3px) scale(1.03);border-color:#596d4d}
+.pigro-story-name{font-size:11px;font-weight:780;line-height:1.25;max-width:94px;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;min-height:28px}
+.pigro-story-disclaimer{font-size:11px;line-height:1.5;color:#82796d;margin:4px 0 0}
+.menu-section .view-switch{position:sticky;top:84px;z-index:15;background:#f2ede2db;backdrop-filter:blur(12px);padding:5px;border:1px solid #ddd8cd;box-shadow:0 5px 18px #3524140d;border-radius:18px;max-width:100%}
+.menu-section .view-switch button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:20px;min-height:48px;min-width:63px;padding:5px 8px;line-height:1}
+.menu-section .view-switch button::after{content:attr(data-ui-label);display:block;font-size:10px;font-weight:850;line-height:1.1;white-space:nowrap;letter-spacing:0}
+.menu-section .view-switch button.active{color:#324a2a;background:#fffefa}
+.pigro-feed-intro{max-width:590px;margin:0 auto 18px;padding:17px 20px;background:#e9ecdf;border:1px solid #d8dfd0;border-radius:18px;text-align:center}
+.pigro-feed-intro>span{display:block;font-size:10px;letter-spacing:.15em;color:#597151;font-weight:900}
+.pigro-feed-intro p{color:#383a2d;font-size:15px;font-weight:780;margin:7px 0}
+.pigro-feed-intro small{font-size:11px;color:#77766d}
+#catalog.feed-mode{width:min(100%,560px);gap:26px;margin-inline:auto;display:flex;flex-direction:column;align-items:stretch}
+#catalog.feed-mode .product{width:100%;background:#fffefa;border-radius:26px;overflow:hidden;border:1px solid #ded7ca;box-shadow:0 18px 45px #3c302115;scroll-margin-top:130px}
+#catalog.feed-mode .product-img{position:relative;aspect-ratio:4/5;background:radial-gradient(circle at 50% 30%,#e7e5d8,#c4cabe 75%);overflow:hidden}
+#catalog.feed-mode .product-img>img{width:100%;height:100%;object-fit:contain;cursor:zoom-in;touch-action:pan-y pinch-zoom}
+#catalog.feed-mode .product-img::before{content:"";position:absolute;z-index:2;pointer-events:none;inset:auto 0 0;height:34%;background:linear-gradient(to top,#29251b6f,transparent)}
+#catalog.feed-mode .product-badge{z-index:3;top:16px;left:16px;border-radius:999px;padding:8px 12px;box-shadow:0 6px 17px #281d101c}
+#catalog.feed-mode .product-img>.fav{display:none}
+.pigro-rail{position:absolute;z-index:6;right:12px;bottom:18px;display:flex;flex-direction:column;gap:10px;align-items:center}
+.pigro-rail-button{width:51px;height:51px;min-height:51px;border-radius:50%;background:rgba(38,33,29,.78);color:#fff;border:1px solid rgba(255,255,255,.46);display:grid;place-items:center;box-shadow:0 6px 18px #23191255;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:background-color .16s,transform .16s}
+.pigro-rail-button svg{display:block;width:25px;height:25px;pointer-events:none}
+.pigro-rail-button[aria-pressed=true]{color:#fff;background:#a14b52;border-color:#f9d5d5}
+.pigro-rail-button[data-social-save][aria-pressed=true]{background:#677d59;border-color:#ecf3dc}
+.pigro-rail-button:hover{transform:translateY(-2px)}
+.pigro-rail-button:active{transform:scale(.95)}
+.pigro-rail-button:focus-visible,.pigro-story:focus-visible,.pigro-post-actions button:focus-visible,.pigro-social-sheet button:focus-visible,.pigro-social-sheet a:focus-visible{outline:3px solid #a3d178;outline-offset:3px}
+.pigro-seen{position:absolute;left:14px;bottom:17px;z-index:5;background:#24201db3;color:#fff;font-size:11px;border-radius:999px;padding:7px 10px;font-weight:800}
+.pigro-seen[hidden]{display:none}
+#catalog.feed-mode .product-body{padding:22px 22px 20px}
+#catalog.feed-mode .product-meta{font-size:11px;color:#6c7864;font-weight:850;text-transform:uppercase;letter-spacing:.08em}
+#catalog.feed-mode .product-body h3{font-size:clamp(25px,4vw,33px);line-height:1.15;letter-spacing:-.04em;margin-top:9px}
+#catalog.feed-mode .product-description{font-size:14px;line-height:1.55;display:block}
+#catalog.feed-mode .product-foot{display:none}
+.pigro-post-actions{margin-top:18px;display:flex;gap:9px;align-items:center;flex-wrap:wrap}
+.pigro-post-add{flex:1 1 190px;min-width:0;border:0;background:#4e6545;color:#fff;border-radius:16px;font-size:14px;font-weight:900;padding:12px 16px;min-height:52px;display:flex;justify-content:center;align-items:center;gap:8px}
+.pigro-post-add svg{width:19px;height:19px;flex-shrink:0}
+.pigro-post-add:hover{background:#3f5638}
+.pigro-post-details{border:1px solid #d6ccbc;background:#fffaf0;border-radius:15px;min-height:52px;padding:10px 16px;font-size:12px;font-weight:850;color:#544e43}
+.pigro-post-nav{margin-left:auto;display:flex;gap:5px}
+.pigro-post-nav button{width:44px;height:44px;min-height:44px;border:1px solid #ded6c9;border-radius:13px;background:#f7f3e9;color:#4d5345;font-size:21px;font-weight:900}
+.pigro-card-share{min-height:44px;min-width:44px;border:1px solid #e4daca;background:#f6f2e9;color:#596750;border-radius:13px;display:grid;place-items:center}
+.pigro-card-share svg{width:21px;height:21px}
+.product-img>.fav svg{width:21px;height:21px;display:block}
+#catalog.feed-mode .pigro-card-share{display:none}
+.pigro-social-sheet{width:min(94vw,480px);max-height:min(85dvh,720px);overflow:auto;margin:auto;border:1px solid #e2d8c7;border-radius:27px;background:#fbf8f0;color:#372f27;padding:clamp(18px,4vw,30px);box-shadow:0 35px 100px #1b140b4b}
+.pigro-social-sheet::backdrop{background:#1c1b14a8;backdrop-filter:blur(4px)}
+.pigro-social-sheet-head{display:flex;justify-content:space-between;align-items:flex-start;gap:15px}
+.pigro-social-sheet-head span{font-size:10px;font-weight:900;letter-spacing:.14em;color:#687c5a}
+.pigro-social-sheet h2{font-size:clamp(25px,5vw,35px);letter-spacing:-.055em;line-height:1.12;margin:8px 0 15px}
+.pigro-sheet-close{flex-shrink:0;width:44px;height:44px;border:1px solid #e2d6c6;border-radius:50%;background:#fffaf2;font-size:25px}
+.pigro-social-preview{display:flex;align-items:center;gap:14px;background:#f0eee6;padding:11px;border-radius:17px}
+.pigro-social-preview img{width:94px;height:94px;object-fit:contain;border-radius:12px;background:#dce0d3}
+.pigro-social-preview>div{display:flex;flex-direction:column;gap:10px;min-width:0}
+.pigro-social-preview b{font-size:17px;line-height:1.3}
+.pigro-social-preview span{font-size:19px;font-weight:900;color:#516948}
+#pigro-sheet-hint{font-size:13px;line-height:1.5;color:#70675b}
+.pigro-share-link{display:flex;flex-direction:column;gap:7px;font-size:11px;font-weight:800;color:#6a6a5e}
+.pigro-share-link input{width:100%;min-height:46px;background:white;border:1px solid #d5cbbb;border-radius:11px;padding:12px;color:#544e45;font-size:12px}
+.pigro-sheet-actions,.pigro-sheet-apps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:13px}
+.pigro-sheet-actions button,.pigro-sheet-apps a{min-height:46px;display:flex;align-items:center;justify-content:center;text-align:center;border-radius:14px;font-size:12px;font-weight:850;padding:11px 8px}
+.pigro-sheet-actions button{background:#4e6545;color:white;border:1px solid #4e6545}
+.pigro-sheet-actions button[hidden]{display:none}
+.pigro-sheet-actions button:only-child{grid-column:1/-1}
+.pigro-sheet-apps a{background:#ece7db;color:#47423a;border:1px solid #d7cfc0}
+.pigro-share-feedback{color:#566b48;font-size:12px;line-height:1.4;min-height:17px;margin:10px 0 0}
+.pigro-heart-pop::after{content:"♥";position:absolute;top:42%;left:50%;z-index:7;color:#fff;font-size:88px;line-height:1;pointer-events:none;text-shadow:0 3px 20px #a63c4970;animation:pigro-heart-burst .65s ease-out both}
+@keyframes pigro-heart-burst{0%{opacity:0;transform:translate(-50%,-35%) scale(.4)}35%{opacity:1;transform:translate(-50%,-50%) scale(1.15)}100%{opacity:0;transform:translate(-50%,-70%) scale(1.3)}}
+@media(max-width:680px){
+ .pigro-stories{padding:20px 16px 18px}
+ .pigro-story-heading{align-items:center}
+ .pigro-story-heading h2{font-size:27px}
+ .pigro-story-heading p{font-size:12px}
+ .pigro-story-open{max-width:146px;padding:9px 11px;font-size:11px;line-height:1.2}
+ .pigro-story-open svg{display:none}
+ .pigro-story-strip{gap:12px;margin-right:-16px;padding-right:16px}
+ .pigro-story{flex-basis:76px}
+ .pigro-story-ring{width:70px;height:70px}
+ .pigro-story-name{font-size:10px;max-width:76px}
+ .pigro-story-disclaimer{font-size:10px}
+ .menu-section .view-switch{position:sticky;top:76px;padding:3px;gap:2px;border-radius:15px}
+ .menu-section .view-switch button{min-width:52px;min-height:46px;padding:5px;font-size:19px}
+ .menu-section .view-switch button::after{font-size:9px}
+ #catalog.feed-mode{max-width:460px;gap:19px}
+ #catalog.feed-mode .product{border-radius:22px;scroll-margin-top:130px}
+ #catalog.feed-mode .product-img{aspect-ratio:4/5}
+ #catalog.feed-mode .product-img>img{object-fit:contain}
+ #catalog.feed-mode .product-badge{font-size:10px;max-width:65%}
+ #catalog.feed-mode .product-body{padding:17px 16px 18px}
+ .pigro-rail{right:10px;bottom:12px;gap:8px}
+ .pigro-rail-button{width:48px;height:48px;min-height:48px}
+ .pigro-rail-button svg{width:23px;height:23px}
+ .pigro-post-details{min-height:49px}
+ .pigro-post-add{min-height:49px}
+ .pigro-post-nav{width:100%;justify-content:flex-end;margin:2px 0 0}
+ .pigro-feed-intro{margin-bottom:14px}
+ .pigro-social-sheet{width:calc(100% - 22px);padding:22px 17px;border-radius:22px}
+}
+@media(max-width:390px){.pigro-post-actions{gap:8px}.pigro-post-add{flex-basis:100%}.pigro-post-details{flex:1}.pigro-post-nav{width:auto}}
+@media(prefers-reduced-motion:reduce){
+ .pigro-story-ring,.pigro-rail-button{transition:none}
+ .pigro-story:hover .pigro-story-ring,.pigro-rail-button:hover{transform:none}
+ .pigro-heart-pop::after{animation:none;display:none}
+}
