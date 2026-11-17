@@ -1,0 +1,55 @@
+/* Pigro Experience: editorial coffee guide and Miora-inspired photographic feed.
+   Brand colors remain soft espresso/olive/cream with restrained highlights. */
+.pigro-guide{max-width:1440px;margin:4px auto 36px;padding:clamp(22px,4vw,46px);border-radius:32px;background:radial-gradient(circle at 90% 0,#e8e8d5 0,transparent 40%),linear-gradient(130deg,#f1f2e8,#fcf5eb 74%);border:1px solid #e3dfce;box-shadow:0 12px 32px rgba(45,36,20,.045);scroll-margin-top:95px}
+.pigro-guide-top{display:flex;justify-content:space-between;align-items:center;gap:22px}
+.pigro-guide-kicker{display:block;color:#627053;font-weight:900;font-size:11px;letter-spacing:.13em}
+.pigro-guide h2{font-size:clamp(32px,4vw,52px);line-height:1.1;letter-spacing:-.05em;margin:10px 0;color:#312821}
+.pigro-guide-top p{max-width:590px;font-size:15px;line-height:1.55;color:#6d6458;margin:0}
+.pigro-guide-mark{font-size:70px;filter:drop-shadow(6px 9px 7px #44331c23)}
+.pigro-guide-progress{display:flex;gap:7px;margin:28px 0 17px}
+.pigro-guide-progress span{height:5px;background:#d6d5c9;border-radius:9px;width:28px}
+.pigro-guide-progress span.active{background:#728561}
+.pigro-guide-step{display:block;margin:0 0 15px;font-size:13px;font-weight:850;color:#556449}
+.pigro-guide-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.pigro-guide-option{min-height:74px;padding:16px 20px;display:flex;gap:12px;align-items:center;justify-content:space-between;text-align:left;border:1px solid #e3dccf;background:#fffdf8;color:#322a21;border-radius:17px;font-weight:850;transition:background-color .15s,transform .15s}
+.pigro-guide-option:hover{background:#f0eadb;transform:translateY(-2px)}
+.pigro-guide-option span{color:#6b7d54;font-size:20px}
+.pigro-guide-nav{display:flex;margin-top:17px}
+.pigro-guide-nav button{border:0;background:transparent;padding:10px 0;color:#567046;text-decoration:underline;text-underline-offset:5px;font-weight:800}
+.pigro-guide-results{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.pigro-guide-result{background:#fffcf6;border:1px solid #e4dbc9;overflow:hidden;border-radius:21px;display:flex;flex-direction:column}
+.pigro-guide-result img{width:100%;aspect-ratio:1.4;object-fit:cover;background:#eee8d8}
+.pigro-guide-result-content{padding:17px;display:flex;flex-direction:column;gap:8px;flex:1}
+.pigro-guide-result-content>strong{font-size:16px;line-height:1.35}
+.pigro-guide-result-content>span{font-size:20px;color:#536943;font-weight:900}
+.pigro-guide-result-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:auto}
+.pigro-guide-result-actions button{border:1px solid #ded6c8;background:#f9f5ed;color:#372e26;font-size:12px;border-radius:11px;padding:10px 12px;font-weight:800}
+.pigro-guide-result-actions button:last-child{background:#4c6545;border-color:#4c6545;color:white}
+.pigro-guide-note{font-size:12px;line-height:1.5;color:#786c5e;margin:17px 0 0}
+.pigro-guide-empty{padding:18px 20px;background:#fff8ee;border:1px solid #e6d9c5;border-radius:15px}
+.pigro-share{background:#faf5e9!important;color:#3c4f30!important;border:1px solid #d9cfbd!important;border-radius:11px!important;white-space:nowrap;cursor:pointer;font-size:12px!important;padding:12px!important;font-weight:800}
+#catalog.feed-mode{display:grid;grid-template-columns:minmax(0,1fr);width:min(100%,670px);margin-inline:auto;gap:28px}
+#catalog.feed-mode .product{border-radius:26px}
+#catalog.feed-mode .product-img{aspect-ratio:1.2}
+#catalog.feed-mode .product-img>img{cursor:zoom-in}
+#catalog.feed-mode .product-body{padding:24px}
+#catalog.feed-mode .product-body h3{font-size:clamp(23px,3vw,30px)}
+#catalog.feed-mode .product-description{display:block}
+#catalog.feed-mode .product-add,#catalog.feed-mode .product-info{min-width:44px;min-height:44px}
+.pigro-guide button:focus-visible,.pigro-share:focus-visible{outline:3px solid #7d9366;outline-offset:2px}
+@media(max-width:700px){
+ .pigro-guide{margin:5px 12px 28px;padding:24px 18px;border-radius:25px}
+ .pigro-guide-mark{font-size:44px}
+ .pigro-guide-top p{font-size:14px}
+ .pigro-guide-options{grid-template-columns:1fr;gap:9px}
+ .pigro-guide-option{min-height:58px;padding:13px 17px}
+ .pigro-guide-results{grid-template-columns:1fr}
+ .pigro-guide-result{display:grid;grid-template-columns:120px minmax(0,1fr);min-height:144px}
+ .pigro-guide-result img{height:100%;aspect-ratio:auto}
+ .pigro-guide-result-content{padding:11px}
+ .pigro-guide-result-actions button{padding:9px}
+ #catalog.feed-mode .product-img{aspect-ratio:4/5}
+ #catalog.feed-mode .product-body{padding:17px}
+ .pigro-share{padding:9px!important}
+}
+@media(prefers-reduced-motion:reduce){.pigro-guide-option{transition:none}.pigro-guide-option:hover{transform:none}}
