@@ -26,6 +26,8 @@ jobs:
           node tests/smoke.mjs
           node --check experience-addon.js
           node --test tests/experience.test.cjs
+          node --check social-ui.js
+          node --test tests/social-ui.test.cjs
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload website
